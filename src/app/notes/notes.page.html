@@ -1,16 +1,19 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title> Lists </ion-title>
+    <ion-title
+      >Notes
+      <button (click)="closeModal()">close</button>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding *ngFor="let list of lists">
-      <ion-item (click)="goToDetails(list.id)">
-        {{list.title}}
+    <ion-item-sliding *ngFor="let note of notes">
+      <ion-item>
+        {{note.title}}
         <span style="font-size: 12px" slot="end"
-          >{{list.updatedAt | date}}</span
+          >{{note.updatedAt | date}}</span
         >
       </ion-item>
       <ion-item-options side="end">
